@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
 import configureStore from './configureStore';
-import AppContainer from './containers/AppContainer'
+import UsersContainer from './containers/UsersContainer'
 import * as serviceWorker from './serviceWorker';
 
 const store = configureStore;
@@ -10,7 +14,9 @@ const store = configureStore;
 const Wrapper = () => {
   return (
     <Provider store={store}>
-      <AppContainer />
+    <Router>
+        <Route path='/' exact component={UsersContainer} />
+      </Router>
     </Provider>
   );
 };
